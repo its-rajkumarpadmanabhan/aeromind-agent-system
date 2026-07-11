@@ -20,6 +20,7 @@ with col1:
     st.header("Control Panel")
     st.write("Input your market intelligence target below. The autonomous multi-agent system will coordinate research, analysis, and execution tasks.")
     
+    
     # User inputs target query
     target_query = st.text_input(
         "Market Research Objective:", 
