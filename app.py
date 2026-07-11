@@ -23,7 +23,7 @@ with col1:
     # User inputs target query
     target_query = st.text_input(
         "Market Research Objective:", 
-        value="What is the current 2026 market standing of NVIDIA's Blackwell and Rubin AI architectures?"
+        value="project by r rajkumar padmanabhan"
     )
     
     start_btn = st.button("Launch Autonomous Agents", type="primary")
