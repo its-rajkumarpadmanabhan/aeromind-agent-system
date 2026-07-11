@@ -24,7 +24,8 @@ with col1:
     # User inputs target query
     target_query = st.text_input(
         "Market Research Objective:", 
-        placeholder="project by r rajkumar padmanabhan #search here ?"
+        value="", 
+        placeholder="e.g., Analyze Google Cloud's TPU v6 vs AWS Trainium3 in 2026..."
     )
     
     start_btn = st.button("Launch Autonomous Agents", type="primary")
@@ -33,8 +34,11 @@ with col2:
     st.header("Agent Execution Matrix & Output")
     
     if start_btn:
-        if not os.environ.get("GROQ_API_KEY"):
-            st.error("Missing GROQ_API_KEY inside your .env file!")
+        # 2. ADDED validation safeguard to stop execution if the user typed nothing
+        if not target_query.strip():
+            st.warning("⚠️ Please type a market research objective before launching the agents!")
+        elif not os.environ.get("GROQ_API_KEY"):
+            st.error("Missing GROQ_API_KEY inside your environment variables!")
         else:
             # Create a live visual status bar
             status_box = st.empty()
